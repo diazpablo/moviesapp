@@ -10,9 +10,11 @@ export function paginate(items, pageNumber, pageSize) {
 }
 
 export function filter(items, filterProperty, filterValue) {
-	return !!filterValue && !!filterValue[filterProperty] ? items.filter(item => item.genre._id === filterValue[filterProperty]) : items;
+	return !!filterValue && !!filterProperty ? items.filter(item => {
+		return _.get(item, filterProperty) === filterValue
+	}) : items;
 }
 
 export function order(items, sortValue, sortOrder) {
-	return _.orderBy(items, [sortValue], [ sortOrder]);
+	return _.orderBy(items, [ sortValue ], [ sortOrder ]);
 }

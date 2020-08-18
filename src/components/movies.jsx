@@ -45,7 +45,7 @@ const Movies = () => {
 		setSortColumn(newSortColumn);
 	}
 
-	const filtered = filter(movies, selectedGenre, '_id');
+	const filtered = filter(movies, 'genre._id', !!selectedGenre && selectedGenre._id);
 	const sorted = order(filtered, sortColumn.path, sortColumn.order);
 	const showMovies = paginate(sorted, currentPage, pageSize);
 

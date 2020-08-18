@@ -1,6 +1,6 @@
 {
-  "short_name":"Test App Movie List",
-  "name": "",
+  "short_name":"Movie List",
+  "name": "Test App Movie List",
   "icons": [
     {
       "src": "favicon.ico",
