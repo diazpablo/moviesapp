@@ -5,7 +5,7 @@ import Table from "./common/table";
 import { Link } from "react-router-dom";
 
 const MoviesTable = props => {
-	const { movies, sortColumn, onDelete, onLike, onSort } = props;
+	const { movies, sortColumn, rows, onDelete, onLike, onSort } = props;
 
 	const columns = [
 		{ path: 'title', label: 'Title', content: movie => <Link to={`/movies/${movie._id}`}>{movie.title}</Link> },
@@ -29,12 +29,14 @@ const MoviesTable = props => {
 			columns={columns}
 			sortColumn={sortColumn}
 			onSort={onSort}
+			rowCount={rows}
 		/>
 	);
 };
 
 MoviesTable.propTypes = {
 	movies: PropTypes.array.isRequired,
+	rows: PropTypes.number.isRequired,
 	onLike: PropTypes.func.isRequired,
 	onDelete: PropTypes.func.isRequired
 }

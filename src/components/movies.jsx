@@ -72,6 +72,7 @@ const Movies = () => {
 					onLike={handleLike}
 					onDelete={handleDelete}
 					onSort={handleSort}
+					rows={pageSize}
 				/>
 
 				<Pagination
@@ -80,6 +81,7 @@ const Movies = () => {
 					currentPage={currentPage}
 					onPageChange={handlePageChange}
 				/>
+
 			</div>
 		</div>
 	);
