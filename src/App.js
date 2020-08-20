@@ -6,6 +6,7 @@ import MovieForm from "./components/movieForm";
 import Customers from "./components/customers";
 import Rentals from "./components/rentals";
 import NotFound from "./components/notFound";
+import LoginForm from "./components/loginForm";
 
 const App = () => {
 	return (
@@ -13,6 +14,7 @@ const App = () => {
 			<NavBar />
 			<main role="main" className="container py-4">
 				<Switch>
+					<Route path="/login" component={LoginForm} />
 					<Route path="/movies/:id" component={MovieForm} />
 					<Route path="/movies" component={Movies} />
 					<Route path="/customers" component={Customers} />
