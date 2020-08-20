@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const ListGroup = props => {
-	const { items, textProperty, valueProperty, selectedItem, onItemSelect } = props;
+	const { className, items, textProperty, valueProperty, selectedItem, onItemSelect } = props;
 	return (
-		<ul className="list-group">
+		<ul className={`list-group ${className}`}>
 			{items.map(item => (
 				<li
 					role="button"
 					onClick={() => onItemSelect(item)}
 					key={item[textProperty]}
-					className={`list-group-item${item === selectedItem ? ' active' : ''}`}
+					className={`list-group-item${item === selectedItem ? ' active bg-dark' : ''}`}
 				>
 					{item[valueProperty]}
 				</li>

@@ -23,7 +23,7 @@ Input.defaultProps = {
 Input.propTypes = {
 	name: PropTypes.string.isRequired,
 	label: PropTypes.string.isRequired,
-	value: PropTypes.string.isRequired,
+	value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
 	onChange: PropTypes.func.isRequired,
 	error: PropTypes.string,
 	autoFocus: PropTypes.bool,

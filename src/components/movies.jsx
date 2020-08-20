@@ -5,6 +5,7 @@ import Pagination from "./common/paginations";
 import { getMovies } from "../services/fakeMovieService";
 import { getGenres } from "../services/fakeGenreService";
 import { paginate, filter, order } from "../utils/helpers";
+import { Link } from "react-router-dom";
 
 const Movies = () => {
 	const [ movies, setMovies ] = useState([]);
@@ -64,6 +65,7 @@ const Movies = () => {
 
 			</div>
 			<div className="col">
+				<Link to="/movies/new" className="btn btn-dark mb-3">Add Movie</Link>
 				<p>Showing {count} movies in database:</p>
 
 				<MoviesTable
