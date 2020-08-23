@@ -6,7 +6,7 @@ import _ from 'lodash';
 const basePag = ({ itemsCount, pageSize, currentPage, onPageChange, className }) => {
 
 		const pagesCount = Math.ceil(itemsCount / pageSize);
-		if (pagesCount === 1) return null;
+		if (pagesCount <= 1) return null;
 
 		const pages = _.range(1, pagesCount + 1);
 
@@ -73,12 +73,13 @@ const Pagination = styled(basePag)`
 	.pagination > .active > span, .pagination > .active > span:hover {
 		color: #343a40;
 		font-weight: bold;
-	  background-color: white;
+		background-color: white;
 		border: solid 1px #343a40 !important;
 	}
-  .page-item.disabled .page-link {
-		  color: #dee2e6;
-  }
+
+	.page-item.disabled .page-link {
+		color: #dee2e6;
+	}
 `
 
 Pagination.propTypes = {
