@@ -80,11 +80,9 @@ class Movies extends Component {
 	}
 
 	handleSearch = query => {
-		console.log(search(this.state.movies, query));
 		this.setState({
-			querySearch: query,
-			currentPage: 1,
-			selectedGenre: null
+			searchQuery: query,
+			currentPage: 1
 		})
 	}
 
@@ -96,11 +94,11 @@ class Movies extends Component {
 			pageSize, searchQuery
 		} = this.state;
 		const filtered = filter(movies, 'genre._id', !!selectedGenre && selectedGenre._id);
-		const sorted = order(filtered, sortColumn.path, sortColumn.order);
-		const showMovies = paginate(sorted, currentPage, pageSize);
+		const searched = search(filtered, searchQuery);
+		const sorted = order(searched, sortColumn.path, sortColumn.order);
+		const paginatedMovies = paginate(sorted, currentPage, pageSize);
 
-		const { length: count } = filtered;
-		if (count === 0) return <p>There are no movies in the database.</p>;
+		const { length: count } = searched;
 
 		return (
 			<div className="row">
@@ -122,7 +120,7 @@ class Movies extends Component {
 					<p>Showing {count} movies in database:</p>
 					<SearchBox value={searchQuery} onChange={this.handleSearch} />
 					<MoviesTable
-						movies={showMovies}
+						movies={paginatedMovies}
 						sortColumn={sortColumn}
 						onLike={this.handleLike}
 						onDelete={this.handleDelete}

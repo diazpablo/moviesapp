@@ -18,3 +18,9 @@ export function filter(items, filterProperty, filterValue) {
 export function order(items, sortValue, sortOrder) {
 	return _.orderBy(items, [ sortValue ], [ sortOrder ]);
 }
+
+export function search(items, searchedValue) {
+	return _.filter(items, item =>
+		item.title.toLowerCase().includes(searchedValue.toLowerCase())
+	);
+}
