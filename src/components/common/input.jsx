@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Input = ({ name, label, error, ...rest }) => {
 	return (
 		<div className="form-group">
-			<label htmlFor={name}>{label}</label>
+			{label && <label htmlFor={name}>{label}</label>}
 			<input
 				{...rest}
 				className="form-control"
@@ -22,7 +22,7 @@ Input.defaultProps = {
 
 Input.propTypes = {
 	name: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
+	label: PropTypes.string,
 	value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
 	onChange: PropTypes.func.isRequired,
 	error: PropTypes.string,

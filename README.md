@@ -1,8 +1,15 @@
 ## Testing URL
-
 https://reactjsmoviesapp.netlify.app
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br />
+Testing Users:
+<br />
+Admin User
+u: admin@test.com
+p: notsecure1234
+<br />
+User:
+u: user@test.com
+p: abcd1234
 
 ## Available Scripts
 

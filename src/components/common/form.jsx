@@ -20,8 +20,13 @@ class Form extends Component {
 	}
 
 	validateProperty = ({ name, value }) => {
-		const propertyObj = { [name]: value };
-		const propertySchema = { [name]: this.schema[name] }
+		let propertyObj = { [name]: value };
+		let propertySchema = { [name]: this.schema[name] };
+		if (name.includes('repeat_')) {
+			const orgName = name.replace('repeat_', '');
+			propertyObj[orgName] = this.state.data[orgName];
+			propertySchema[orgName] = this.schema[orgName];
+		}
 		const { error } = Joi.validate(propertyObj, propertySchema);
 		return error ? error.details[0].message : null;
 	}
