@@ -25,8 +25,9 @@ class Movies extends Component {
 	}
 
 	fetchData = async () => {
-		const { data: genres } = await getGenres();
+		const { data: dbGenres } = await getGenres();
 		const { data: movies } = await getMovies();
+		const genres = [ { _id: '', name: 'All Genres' }, ...dbGenres ]
 		this.setState({ genres, movies })
 	};
 
